@@ -1,6 +1,6 @@
 # BCG Financial Chatbot
 
-A web-based financial chatbot developed for BCG's GenAI Job Simulation on Forage. This project uses Python, Pandas, and Flask to process financial data and answer queries about companies like Apple, Microsoft, and Tesla, with a vibrant and responsive user interface.
+A web-based financial chatbot developed for BCG's GenAI Job Simulation on Forage. This project uses Python, Pandas, and Flask to process financial data and answer queries about companies like Apple, Microsoft, and Tesla, with a vibrant and responsive user interface enhanced by AJAX for seamless updates.
 
 ## Features
 - **Data Processing**: Uses Pandas to parse and analyze financial data from a CSV file (`financial-data.csv`) based on 10-K reports.
@@ -10,9 +10,9 @@ A web-based financial chatbot developed for BCG's GenAI Job Simulation on Forage
   - Total assets of a company in a specific year.
   - Debt-to-assets ratio of a company in a specific year.
   - Year-over-year net income change for a company.
-- **User Interface**: Responsive and colorful UI with Poppins font, Font Awesome icons, and CSS animations (gradient backgrounds, hover effects).
+- **User Interface**: Responsive and colorful UI with Poppins font, Font Awesome icons, CSS animations (gradient backgrounds, hover effects), and AJAX for partial page updates (no full-page refresh).
 - **Deployment**: Hosted on GitHub Codespaces for easy online access and testing.
-- **Technologies**: Python, Flask, Pandas, HTML, CSS, Git, GitHub Codespaces.
+- **Technologies**: Python, Flask, Pandas, HTML, CSS, JavaScript (AJAX), Git, GitHub Codespaces.
 
 ## Project Structure
 ```
@@ -20,8 +20,8 @@ financial-chatbot/
 ├── .devcontainer/
 │   └── devcontainer.json  # Configures Codespaces environment
 ├── templates/
-│   └── chatbot.html       # HTML template for the web interface
-├── app.py                 # Main Flask application
+│   └── chatbot.html       # HTML template with AJAX for web interface
+├── app.py                 # Main Flask application with JSON endpoint
 ├── financial-data.csv     # Financial data for Apple, Microsoft, Tesla
 ├── requirements.txt       # Python dependencies
 ├── README.md              # Project documentation
@@ -79,6 +79,7 @@ financial-chatbot/
    - Enter queries like:
      - "What is the total revenue of Apple in 2023?" (Expected: "Total Revenue for Apple in 2023 was 383.285 billion USD.")
      - "How has net income changed for Tesla from 2023 to 2024?" (Expected: "Net income for Tesla decreased by 52.24% from 2023 to 2024.")
+   - The response section updates without refreshing the page, thanks to AJAX.
    - Save screenshots of responses for documentation.
 
 ## Example Queries and Responses
@@ -98,6 +99,7 @@ financial-chatbot/
 - Add support for more companies and financial metrics.
 - Integrate real-time data via APIs.
 - Enhance query parsing with NLP (e.g., using transformers).
+- Add animations for response updates to improve UX.
 
 ## Author
 - **Ali Doostali**
