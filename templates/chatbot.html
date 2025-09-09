@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+            margin: 0;
+            padding: 20px;
+            color: #2d3436;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            color: #0984e3;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .intro {
+            font-size: 1.2em;
+            color: #636e72;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .examples {
+            background-color: #f1f8e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid #27ae60;
+        }
+        .examples ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 1em;
+            color: #2d3436;
+        }
+        .examples li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            color: #27ae60;
+            margin-right: 10px;
+        }
+        .examples li {
+            margin: 10px 0;
+        }
+        .chat-form {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            align-items: center;
+        }
+        .chat-form input[type="text"] {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #dfe6e9;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .chat-form input[type="text"]:focus {
+            border-color: #27ae60;
+            box-shadow: 0 0 8px rgba(39, 174, 96, 0.3);
+        }
+        .chat-form button {
+            padding: 15px 25px;
+            background-color: #27ae60;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .chat-form button:hover {
+            background-color: #e67e22;
+            transform: scale(1.05);
+        }
+        .chat-form button i {
+            font-size: 1.2em;
+        }
+        .response {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #27ae60;
+            font-size: 1.1em;
+            line-height: 1.6;
+            white-space: pre-line;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            .chat-form {
+                flex-direction: column;
+            }
+            .chat-form button {
+                width: 100%;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-robot"></i> Financial Chatbot</h1>
+        <p class="intro">Ask about financial data for Apple, Microsoft, or Tesla!</p>
+        <div class="examples">
+            <strong>Examples:</strong>
+            <ul>
+                <li>What is the total revenue of Apple in 2023?</li>
+                <li>What is the net income of Tesla in 2024?</li>
+                <li>What are the total assets of Microsoft in 2025?</li>
+                <li>What is the debt-to-assets ratio of Apple in 2022?</li>
+                <li>How has net income changed for Tesla from 2023 to 2024?</li>
+            </ul>
+        </div>
+        <form method="post" class="chat-form">
+            <input type="text" name="query" placeholder="Your question (e.g., Revenue Apple 2023)" required>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Ask</button>
+        </form>
+        <div class="response">
+            <strong>Response:</strong><br>
+            {{ response | safe }}
+        </div>
+    </div>
+</body>
+</html>
